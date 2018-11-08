@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:local="clr-namespace:SnackViewInListView"
+             x:Class="SnackViewInListView.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:BookInfoRepository x:Name="viewModel" />
+    </ContentPage.BindingContext>
+    <syncfusion:SfListView x:Name="listView" SelectionMode="None"
+                   ItemsSource="{Binding BookInfo}"
+                   ItemSize="100">
+        <syncfusion:SfListView.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid BackgroundColor="#E6E6E6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding BookName}" 
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                        <Button Grid.Column="1" Text="Show SnackBar" 
+                                HorizontalOptions="Center" VerticalOptions="Center"
+                                Command="{Binding Path=BindingContext.TapCommand, Source={x:Reference Name=listView}}"
+                                CommandParameter="{x:Reference Name=listView}"/>
+                    </Grid>
+
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.ItemTemplate>
+    </syncfusion:SfListView>
+</ContentPage>
