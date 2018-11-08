@@ -1,6 +1,6 @@
-# How to show snack bar at the bottom of the list
+# How to show the snack bar at the bottom of list
 
-This example demonstrates how to display the snackbar at the bottom of the listview.
+This example demonstrates how to display the snackbar at the bottom of listview.
 
 ## Requirements to run the demo
 
